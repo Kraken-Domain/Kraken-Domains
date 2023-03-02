@@ -25,7 +25,7 @@ const Dashboard = () => {
     mounted && (
       <>
         {isConnected && (
-          <div className="bg-black-gradient-2 h-screen">
+          <div className="bg-black-gradient-2 h-full">
             <div className="flex">
               <Sidebar />
               <ProfileNavbar />

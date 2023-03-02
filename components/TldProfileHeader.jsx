@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast, ToastContainer } from "react-toastify";
 
 const TldProfileHeader = () => {
@@ -26,14 +25,6 @@ const TldProfileHeader = () => {
           </a>
         </button>
         &nbsp;&nbsp;
-        {/* <CopyToClipboard text={text} onCopy={() => setCopied(true)}>
-          <button className="p-2 bg-slate-600 rounded-2xl">Copy Link</button>
-        </CopyToClipboard>
-        {copied ? (
-          <span className="text-green-500 text-sm">Link copied</span>
-        ) : (
-          ""
-        )} */}
       </div>
       <img
         src="/planet-06.png"
