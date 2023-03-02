@@ -1,12 +1,15 @@
-import CreateHeader from '@/components/CreateHeader';
-import ProfileNavbar from '@/components/ProfileNavbar';
-import Sidebar from '@/components/Sidebar';
-import React from 'react';
-import Create from '@/components/Create';
+"use client";
+
+import CreateHeader from "@/components/CreateHeader";
+import ProfileNavbar from "@/components/ProfileNavbar";
+import Sidebar from "@/components/Sidebar";
+import React from "react";
+import Create from "@/components/Create";
+import DomainTypeCard from "@/components/DomainTypeCard";
 
 const createDomain = () => {
   return (
-    <div className="bg-black-gradient h-full">
+    <div className="bg-black-gradient h-screen">
       <div className="flex">
         <Sidebar />
         <ProfileNavbar />
@@ -14,7 +17,7 @@ const createDomain = () => {
       <div>
         <CreateHeader />
 
-        <Create />
+        <DomainTypeCard />
       </div>
     </div>
   );

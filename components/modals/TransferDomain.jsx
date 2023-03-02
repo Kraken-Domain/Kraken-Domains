@@ -1,5 +1,5 @@
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
 
 const TransferDomain = ({ openMintModal, handleOnClose, domainName, tld }) => {
   return (
@@ -35,7 +35,7 @@ const TransferDomain = ({ openMintModal, handleOnClose, domainName, tld }) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl rex2 gradi p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl rex bg-black-gradient-2 p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-secondary-white"
@@ -66,7 +66,7 @@ const TransferDomain = ({ openMintModal, handleOnClose, domainName, tld }) => {
                       </label>
                       <input
                         type="text"
-                        className="border  text-sm border-secondary-white p-2 rounded mb-5 gradi text-white"
+                        className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-black-gradient text-white"
                         placeholder="Please input your tokenID"
                         required
                       />
@@ -78,7 +78,7 @@ const TransferDomain = ({ openMintModal, handleOnClose, domainName, tld }) => {
                       </label>
                       <input
                         type="text"
-                        className="border  text-sm border-secondary-white p-2 rounded mb-5 gradi text-white"
+                        className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-black-gradient text-white"
                         placeholder="Please input a valid address"
                         required
                       />

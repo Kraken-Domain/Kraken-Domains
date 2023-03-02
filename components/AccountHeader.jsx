@@ -93,7 +93,7 @@ const AccountHeader = () => {
             <img
               src="/roko.jpg"
               alt=""
-              className="w-[100px] h-[100px] polygon"
+              className="w-[100px] h-[100px] polygon "
             />
           </div>
           <p className="text-secondary-white mt-6">

@@ -11,8 +11,8 @@ const DomainTypeCard = () => {
   const handleStandardClose = () => setShowStandardModal(false);
 
   return (
-    <div className="ml-[350px] w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto">
-      <div className="shadow p-5 rounded-lg border-t-4 border-purple-900 bg-gray-400  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 rex2">
+    <div className="ml-[350px] w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto">
+      <div className="shadow p-5 rounded-lg border-t-4 border-purple-900 bg-black-gradient  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 rex">
         <p className="uppercase text-sm font-medium text-secondary-white">
           Standard Domain
         </p>
@@ -73,7 +73,7 @@ const DomainTypeCard = () => {
         </div>
       </div>
 
-      <div className="shadow p-5 rounded-lg border-t-4 border-purple-900 bg-gray-400  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 rex2">
+      <div className="shadow p-5 rounded-lg border-t-4 border-purple-900 bg-black-gradient-2  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 rex">
         <p className="uppercase text-sm font-medium text-secondary-white">
           SBT Domains
         </p>
