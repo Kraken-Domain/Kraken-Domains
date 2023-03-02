@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import styles from '../styles';
-import { SiReactivex } from 'react-icons/si';
-import { MdOutlineNotificationsNone } from 'react-icons/md';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { RiArrowDropDownLine } from 'react-icons/ri';
+import styles from "../styles";
+import { SiReactivex } from "react-icons/si";
+import { MdOutlineNotificationsNone } from "react-icons/md";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const ProfileNavbar = () => (
   <nav
@@ -65,7 +65,7 @@ const ProfileNavbar = () => (
           alt=""
           className="w-[25px] h-[25px] rounded-full"
         />
-        &nbsp; ademola.dojima
+        &nbsp; adekoya.fantom
       </button>
       <button className="gradi p-2 pr-10 text-white rounded-[10px] font-bold">
         <ConnectButton showBalance={false} />

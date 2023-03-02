@@ -1,17 +1,8 @@
 import { AiOutlineHome, AiOutlineLineChart } from "react-icons/ai";
 import { FiUpload } from "react-icons/fi";
 import { FaExchangeAlt } from "react-icons/fa";
-import {
-  MdOutlineSpaceDashboard,
-  MdOutlineAnalytics,
-  MdOutlineIntegrationInstructions,
-  MdOutlineMoreHoriz,
-  MdOutlineSettings,
-  MdOutlineLogout,
-} from "react-icons/md";
-import { BsGear, BsPiggyBank } from "react-icons/bs";
-import { BiDroplet } from "react-icons/bi";
-import { GiChest } from "react-icons/gi";
+import { MdOutlineIntegrationInstructions } from "react-icons/md";
+import { BsSearch } from "react-icons/bs";
 
 export const exploreWorlds = [
   {
@@ -117,6 +108,11 @@ export const navigation = [
     name: "Minter",
     href: "/minter",
     icon: <AiOutlineLineChart />,
+  },
+  {
+    name: "Whois",
+    href: "/lookup",
+    icon: <BsSearch />,
   },
   {
     name: "Integration",

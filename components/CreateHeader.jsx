@@ -9,12 +9,6 @@ const CreateHeader = () => {
       >
         Create a Top Level Domain
       </h1>
-
-      {/* <img
-        src="/planet-14.png"
-        alt=""
-        className="w-[300px] justify-center flex mt-10"
-      /> */}
     </div>
   );
 };

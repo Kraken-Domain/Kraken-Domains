@@ -23,7 +23,7 @@ const DomainCard = ({ domainName, tld, image }) => {
 
   return (
     <div
-      className={`w-[400px] rex2 h-full cursor-pointer relative overflow-hidden bg-black-gradient-2 p-1 flex flex-col items-center mb-10`}
+      className={`w-[330px] rex2 h-full cursor-pointer relative overflow-hidden bg-black-gradient-2 p-1 flex flex-col items-center mb-10`}
     >
       <img
         src={image}

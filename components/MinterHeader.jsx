@@ -5,15 +5,18 @@ import krakenDomainAbi from "../abi/krakenDomainABI.json";
 import { ethers } from "ethers";
 import { config } from "../abi";
 import { toast, ToastContainer } from "react-toastify";
+import ConfirmationModal from "@/components/ConfirmationModal";
 import "react-toastify/dist/ReactToastify.css";
 
-const HomeMinter = () => {
+const MinterHeader = () => {
   const { address, isConnected } = useAccount();
   const [userDomain, setUserDomain] = useState("");
-  const [selectTld, setSelectTld] = useState(".rest");
-  const [selectTldPrice, setSelectTldPrice] = useState("0.1");
+  const [selectTld, setSelectTld] = useState(".kraken");
+  const [selectTldPrice, setSelectTldPrice] = useState("0.01");
   const [domainFactory, setDomainFactory] = useState("");
   const [tlds, setTlds] = useState();
+  const [domainHash, setDomainHash] = useState("");
+  const [openMintModal, setOpenMintModal] = useState(false);
 
   const notify = (e) => {
     e.preventDefault();
@@ -22,6 +25,8 @@ const HomeMinter = () => {
       position: toast.POSITION.TOP_CENTER,
     });
   };
+
+  const handleMintOnClose = () => setOpenMintModal(false);
 
   const getTldPrice = async (tld) => {
     const provider = new ethers.providers.JsonRpcProvider(
@@ -157,6 +162,12 @@ const HomeMinter = () => {
           Domain Price: {selectTldPrice} FTM
         </p>
 
+        <ConfirmationModal
+          txHash={domainHash}
+          openMintModal={openMintModal}
+          handleOnClose={handleMintOnClose}
+        />
+
         {isConnected && (
           <button
             type="submit"
@@ -181,4 +192,4 @@ const HomeMinter = () => {
   );
 };
 
-export default HomeMinter;
+export default MinterHeader;

@@ -1,18 +1,20 @@
 import React from "react";
 import Sidebar from "@/components/Sidebar";
 import ProfileNavbar from "@/components/ProfileNavbar";
-import TldProfileHeader from "@/components/TldProfileHeader";
+import { useAccount } from "wagmi";
+import Lookup from "@/components/Lookup";
 
-const minter = () => {
+const lookup = () => {
   return (
-    <div className="bg-black-gradient h-screen">
+    <div className="bg-black-gradient-2 h-screen">
       <div className="flex">
         <Sidebar />
         <ProfileNavbar />
       </div>
-      <TldProfileHeader />
+
+      <Lookup />
     </div>
   );
 };
 
-export default minter;
+export default lookup;

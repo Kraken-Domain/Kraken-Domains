@@ -4,7 +4,6 @@ import CreateHeader from "@/components/CreateHeader";
 import ProfileNavbar from "@/components/ProfileNavbar";
 import Sidebar from "@/components/Sidebar";
 import React from "react";
-import Create from "@/components/Create";
 import DomainTypeCard from "@/components/DomainTypeCard";
 
 const createDomain = () => {
