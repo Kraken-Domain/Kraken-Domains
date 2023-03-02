@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAccount } from "wagmi";
-import picardyDomainFactoryAbi from "../abi/picardyDomainFactoryAbi.json";
-import picardyDomainAbi from "../abi/picardyDomainAbi.json";
+import krakenDomainFactoryAbi from "../abi/krakenDomainFactory.json";
+import krakenDomainAbi from "../abi/krakenDomainABI.json";
 import { ethers } from "ethers";
 import { config } from "../abi";
 import { toast, ToastContainer } from "react-toastify";
@@ -25,14 +25,14 @@ const HomeMinter = () => {
 
   const getTldPrice = async (tld) => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      "https://rpc.ankr.com/fantom_testnet"
     );
 
     const tldAddress = await domainFactory.tldNamesAddresses(tld);
 
     const domainContract = new ethers.Contract(
       tldAddress,
-      picardyDomainAbi,
+      krakenDomainAbi,
       provider
     );
 
@@ -44,13 +44,13 @@ const HomeMinter = () => {
 
   const getTldDomains = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      "https://rpc.ankr.com/fantom_testnet"
     );
     // const signer = provider.getSigner();
 
     const newDomainFactory = new ethers.Contract(
       config.domainFactoryAddress,
-      picardyDomainFactoryAbi,
+      krakenDomainFactoryAbi,
       provider
     );
 
@@ -88,7 +88,7 @@ const HomeMinter = () => {
 
     const domainContract = new ethers.Contract(
       tldAddress,
-      picardyDomainAbi,
+      krakenDomainAbi,
       signer
     );
 
@@ -154,7 +154,7 @@ const HomeMinter = () => {
         </div>
 
         <p className="text-white font-bold text-center mb-4">
-          Domain Price: {selectTldPrice} BIT
+          Domain Price: {selectTldPrice} FTM
         </p>
 
         {isConnected && (

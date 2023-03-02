@@ -200,7 +200,7 @@ const CreateStaModal = ({ visible, onClose }) => {
         <div className={receipt === true ? "block" : "hidden"}>
           <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full py-24  flex flex-col items-center justify-center">
             <h1 className="text-lg text-secondary-white">
-              Your domain has been created on the Mantle Testnet.
+              Your domain has been created on the Fantom Testnet.
             </h1>
             <div className="flex items-center w-full justify-center mt-[20px] text-[100px] text-green-500">
               <IoMdCheckmarkCircle />
@@ -208,7 +208,7 @@ const CreateStaModal = ({ visible, onClose }) => {
             <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-2 text-white mt-4 font-bold rounded-xl">
               <a
                 target="_blank"
-                href={"https://explorer.testnet.mantle.xyz/tx/" + hash}
+                href={"https://testnet.ftmscan.com/tx/" + hash}
               >
                 Verify Transaction
               </a>

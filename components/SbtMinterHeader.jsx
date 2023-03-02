@@ -11,8 +11,8 @@ import ConfirmationModal from "@/components/ConfirmationModal";
 const SbtMinter = () => {
   const { address, isConnected } = useAccount();
   const [userDomain, setUserDomain] = useState("");
-  const [selectTld, setSelectTld] = useState(".soul");
-  const [selectTldPrice, setSelectTldPrice] = useState("0.5");
+  const [selectTld, setSelectTld] = useState(".sbt");
+  const [selectTldPrice, setSelectTldPrice] = useState("0.003");
   const [domainFactory, setDomainFactory] = useState("");
   const [tlds, setTlds] = useState();
   const [openMintModal, setOpenMintModal] = useState(false);
@@ -30,7 +30,7 @@ const SbtMinter = () => {
 
   const getTldPrice = async (tld) => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      "https://rpc.ankr.com/fantom_testnet"
     );
 
     const tldAddress = await domainFactory.tldNamesAddresses(tld);
@@ -49,7 +49,7 @@ const SbtMinter = () => {
 
   const getTldDomains = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      process.env.NEXT_PUBLIC_POLYGON_MUMBAI_ENDPOINT
+      "https://rpc.ankr.com/fantom_testnet"
     );
     // const signer = provider.getSigner();
 
@@ -159,7 +159,7 @@ const SbtMinter = () => {
         </div>
 
         <p className="text-white font-bold text-center mb-4">
-          Domain Price: {selectTldPrice} BIT
+          Domain Price: {selectTldPrice} FTM
         </p>
 
         <ConfirmationModal
@@ -184,10 +184,10 @@ const SbtMinter = () => {
             onClick={notify}
           >
             Mint
-            <ToastContainer />
           </button>
         )}
       </form>
+      <ToastContainer />
     </section>
   );
 };

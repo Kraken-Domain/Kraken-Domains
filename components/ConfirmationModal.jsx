@@ -45,10 +45,8 @@ const MintedModal = ({ txHash, openMintModal, handleOnClose }) => {
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
                       You can now proceed to verify your Domain transaction on
-                      the Mantle Testnet Explorer.
+                      the Fantom Testnet Explorer.
                       <br /> <br />
-                      You might have to wait a while for transaction to be
-                      confirmed on your wallet.
                     </p>
                   </div>
 
@@ -60,11 +58,9 @@ const MintedModal = ({ txHash, openMintModal, handleOnClose }) => {
                     >
                       <a
                         target="_blank"
-                        href={
-                          "https://explorer.testnet.mantle.xyz/tx/" + txHash
-                        }
+                        href={"https://testnet.ftmscan.com/tx/" + txHash}
                       >
-                        Confirm on Mantle
+                        Confirm on Fantom
                       </a>
                     </button>
                     &nbsp;&nbsp;&nbsp;

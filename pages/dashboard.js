@@ -6,7 +6,6 @@ import { useState, useEffect, createRef } from "react";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import ConnectModal from "@/components/ConnectModal";
-import MyDomains from "@/components/MyDomains";
 import DomainTab from "@/components/DomainTab";
 
 const Dashboard = () => {
