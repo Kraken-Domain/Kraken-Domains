@@ -31,7 +31,7 @@ const MintNavbar = () => (
         <li>Community</li>
       </ul>
 
-      <ConnectButton />
+      <ConnectButton showBalance={false} />
     </div>
   </motion.nav>
 );

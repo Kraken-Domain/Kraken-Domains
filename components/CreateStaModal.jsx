@@ -123,7 +123,7 @@ const CreateStaModal = ({ visible, onClose }) => {
         <div className={receipt === true ? "hidden" : "block"}>
           {!isLoading && (
             <>
-              <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full  py-20  flex flex-col items-center justify-center">
+              <div className="rex3 bg-black-gradient  p-10 rounded-[40px] w-full  py-20  flex flex-col items-center justify-center">
                 <div className="px-[50px]">
                   <h1 className="text-center text-2xl text-secondary-white">
                     Create your Custom Standard Domain
@@ -137,7 +137,7 @@ const CreateStaModal = ({ visible, onClose }) => {
                     </label>
                     <input
                       type="text"
-                      className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-gray-800 text-white"
+                      className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-secondary-white text-gray-600 placeholder-gray-500 font-bold"
                       placeholder="Please input a name"
                       required
                       onChange={(e) => setDomainName(e.target.value)}
@@ -150,8 +150,8 @@ const CreateStaModal = ({ visible, onClose }) => {
                     </label>
                     <input
                       type="text"
-                      className="border text-sm border-secondary-white  text-secondary-white bg-gray-800 p-2 rounded mb-5"
-                      placeholder='Domain symbol (i.e "TLD", "KRAKEN")'
+                      className="border text-sm border-secondary-white  text-gray-900 placeholder-gray-700  bg-secondary-white p-2 rounded mb-5"
+                      placeholder='Domain symbol (i.e "FTM", "KRA")'
                       required
                       // defaultValue={symbol}
                       onChange={(e) => setSymbol(e.target.value)}
@@ -177,7 +177,7 @@ const CreateStaModal = ({ visible, onClose }) => {
                       type="number"
                       min="0.000"
                       step="0.001"
-                      className="border border-secondary-white text-secondary-white p-2 rounded mb-5 text-sm bg-gray-800"
+                      className="border border-secondary-white text-gray-900 p-2 rounded mb-5 text-sm bg-secondary-white placeholder-gray-700"
                       placeholder="price per mint"
                       required
                       // defaultValue={price}

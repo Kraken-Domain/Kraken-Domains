@@ -117,7 +117,7 @@ const CreateSbtModal = ({ visible, onClose }) => {
         <div className={receipt === true ? "hidden" : "block"}>
           {!isLoading && (
             <>
-              <div className="rex3 bg-primary-black  p-10 rounded-[40px] w-full  py-20  flex flex-col items-center justify-center">
+              <div className="rex3 bg-black-gradient-2  p-10 rounded-[40px] w-full  py-20 px-[74px]  flex flex-col items-center justify-center">
                 <div className="px-[50px]">
                   <h1 className="text-center text-2xl text-secondary-white">
                     Create your Custom SBT Domain
@@ -131,7 +131,7 @@ const CreateSbtModal = ({ visible, onClose }) => {
                     </label>
                     <input
                       type="text"
-                      className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-gray-800 text-white"
+                      className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-secondary-white text-gray-700 placeholder-gray-700"
                       placeholder="Please input a name"
                       required
                       onChange={(e) => setDomainName(e.target.value)}
@@ -144,7 +144,7 @@ const CreateSbtModal = ({ visible, onClose }) => {
                     </label>
                     <input
                       type="text"
-                      className="border text-sm border-secondary-white  text-secondary-white bg-gray-800 p-2 rounded mb-5"
+                      className="border text-sm border-secondary-white  text-gray-800 placeholder-gray-600 bg-secondary-white p-2 rounded mb-5"
                       placeholder='Domain symbol (i.e "TLD", "KRAKEN")'
                       required
                       // defaultValue={symbol}
@@ -171,7 +171,7 @@ const CreateSbtModal = ({ visible, onClose }) => {
                       type="number"
                       min="0.000"
                       step="0.001"
-                      className="border border-secondary-white text-secondary-white p-2 rounded mb-5 text-sm bg-gray-800"
+                      className="border border-secondary-white  p-2 rounded mb-5 text-sm text-gray-800 placeholder-gray-600 bg-secondary-white"
                       placeholder="price per mint"
                       required
                       // defaultValue={price}
