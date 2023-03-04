@@ -12,7 +12,13 @@ import merge from "lodash.merge";
 
 const { provider, chains } = configureChains(
   [fantomTestnet],
-  [publicProvider()]
+  [
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://rpc.ankr.com/fantom_testnet`,
+      }),
+    }),
+  ]
 );
 
 const { connectors } = getDefaultWallets({

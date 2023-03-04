@@ -24,7 +24,7 @@ const StandardDomains = () => {
       config.domainResolverAddress,
       domainResolverAbi,
       signer
-    );
+    );  
 
     const defaultDomain = await domainResolver.getDefaultDomains(address);
     // console.log("deafult domains:", defaultDomain);
