@@ -1,19 +1,42 @@
 "use client";
 
-import React from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles";
 import { FaWallet } from "react-icons/fa";
+import { ethers } from "ethers";
+import { config } from "@/abi";
+import domainResolverAbi from "../abi/krakenDomainResolver.json";
 import { AiOutlineHome } from "react-icons/ai";
 import { RiWallet3Line } from "react-icons/ri";
 import { useAccount, useBalance } from "wagmi";
 
 const AccountHeader = () => {
   const { address } = useAccount();
+  const [userDefault, setUserDefault] = useState();
   const { data } = useBalance({
-    addressOrName: address,
+    address: address,
   });
 
-  console.log(data?.formatted);
+  const getDefaultDomain = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const domainResolver = new ethers.Contract(
+      config.domainResolverAddress,
+      domainResolverAbi,
+      signer
+    );
+
+    const defaultDomain = await domainResolver.getFirstDefaultDomain(address);
+
+    setUserDefault(defaultDomain);
+  };
+
+  useEffect(() => {
+    getDefaultDomain();
+  }, [address]);
+
+  // console.log(data?.formatted);
 
   const formatAddress = (address) => {
     let addressFormatted;
@@ -28,7 +51,7 @@ const AccountHeader = () => {
   const formatBalance = (balance) => {
     let balanceFormatted;
     if (balance) {
-      balanceFormatted = balance.slice(0, -2);
+      balanceFormatted = balance.slice(0, -12);
     } else {
       balanceFormatted = "---";
     }
@@ -102,7 +125,7 @@ const AccountHeader = () => {
               Default Domain:
             </span>
             <span className="bg-white p-2 roun text-black rounded-r-lg font-bold">
-              adekoya.fantom
+              {userDefault}
             </span>{" "}
           </p>
         </div>

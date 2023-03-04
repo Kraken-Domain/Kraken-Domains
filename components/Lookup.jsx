@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "../styles";
 import LookupCard from "./LookupCard";
 import domainResolverAbi from "../abi/krakenDomainResolver.json";
@@ -17,21 +17,16 @@ const Lookup = () => {
   const [loading, setLoading] = useState(false);
   const [userInput, setUserInput] = useState("");
   const [tokenId, setTokenId] = useState("");
-
-  //   const formattedName = userInput.replace(/\s+/g, "").toLowerCase().trim();
-  //   console.log(formattedName);
-  //   const splitName = formattedName.split(".");
-  //   // setLoading(true);
-  //   console.log(splitName);
-  //   const domain = splitName[0];
-  //   const tld = "." + splitName[1];
+  const [holderAddress, setHolderAddress] = useState("");
+  const [tldAddress, setTldAddress] = useState("");
 
   const getData = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formattedName = userInput.replace(/\s+/g, "").toLowerCase().trim();
     const splitName = formattedName.split(".");
-    // setLoading(true);
+
     console.log(splitName);
     const domain = splitName[0];
     const tld = "." + splitName[1];
@@ -47,18 +42,15 @@ const Lookup = () => {
     );
 
     const domainHolder = await domainResolver.getDomainHolder(domain, tld);
-    console.log("Domain Holder Address", domainHolder);
+    setHolderAddress(domainHolder);
 
     const tldAddress = await domainResolver.getTldAddress(tld);
-    console.log("Domain Tld Address:", tldAddress);
+    setTldAddress(tldAddress);
 
     const address = await getFactory(tldAddress, domain);
-  };
 
-  useEffect(() => {
-    // getData();
-    // getFactory();
-  }, []);
+    setLoading(false);
+  };
 
   const getFactory = async (tld, domain) => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -136,7 +128,13 @@ const Lookup = () => {
       <div className="ml-[50px]">
         <div className="ml-[250px] mt-2">{loading && <SearchSkeleton />}</div>
 
-        {!loading && <LookupCard />}
+        {!loading && (
+          <LookupCard
+            ownerAddress={holderAddress}
+            contractAddress={tldAddress}
+            tokenId={tokenId}
+          />
+        )}
       </div>
     </>
   );

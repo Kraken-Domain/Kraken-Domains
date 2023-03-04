@@ -1,14 +1,14 @@
 import "@/styles/globals.css";
-import { connectorsForWallets, darkTheme } from "@rainbow-me/rainbowkit";
+import { darkTheme } from "@rainbow-me/rainbowkit";
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
-import { metaMaskWallet } from "@rainbow-me/rainbowkit/wallets";
-import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { fantomTestnet } from "@wagmi/core/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import merge from "lodash.merge";
+// import { DomainContextProvider } from "@/context/context";
 
 const { provider, chains } = configureChains(
   [fantomTestnet],
@@ -42,7 +42,9 @@ export default function App({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={myTheme} coolMode>
+        {/* <DomainContextProvider> */}
         <Component {...pageProps} />
+        {/* </DomainContextProvider> */}
       </RainbowKitProvider>
     </WagmiConfig>
   );

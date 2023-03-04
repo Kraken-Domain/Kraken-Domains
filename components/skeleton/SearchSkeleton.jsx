@@ -8,7 +8,7 @@ const SearchSkeleton = ({ cards }) => {
       <div className=" rounded-tr-[40px] w-full h-full cursor-pointer relative overflow-hidden">
         <div className="w-full ">
           <Skeleton
-            width={900}
+            width={700}
             height={280}
             borderRadius="1rem"
             style={{ padding: "50px" }}
