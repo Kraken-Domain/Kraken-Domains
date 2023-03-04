@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import DomainCard from "./DomainCard";
 import domainResolverAbi from "../abi/krakenDomainResolver.json";
+import krakenDomainAbi from "../abi/krakenDomainABI.json";
 import DomainSkeleton from "../components/skeleton/DomainSkeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { ethers } from "ethers";
@@ -9,10 +10,9 @@ import { config } from "../abi";
 import { MdHourglassEmpty } from "react-icons/md";
 
 const StandardDomains = () => {
-  const { address, isConnected } = useAccount();
+  const { address } = useAccount();
   const [response, setResponse] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [res, setRes] = useState("");
 
   const getProfileDetails = async () => {
     setLoading(true);
@@ -24,18 +24,16 @@ const StandardDomains = () => {
       config.domainResolverAddress,
       domainResolverAbi,
       signer
-    );  
+    );
 
     const defaultDomain = await domainResolver.getDefaultDomains(address);
-    // console.log("deafult domains:", defaultDomain);
 
     const defaultDomainArr = defaultDomain.split(" ");
-    // console.log("deafult domain array:", defaultDomainArr);
+
     const domainDetails = await getDefaultDomains(defaultDomainArr);
-    // console.log("domain details: ", domainDetails);
 
     const domainUriArr = await getDomainUri(domainDetails);
-    console.log("domain uri", domainUriArr);
+
     setResponse(domainUriArr);
 
     setLoading(false);
@@ -60,7 +58,7 @@ const StandardDomains = () => {
         tld: "",
       };
       const domain = defaultDomains[i];
-      console.log(domain);
+      // console.log(domain);
       const splitArr = domain.split(".");
       const domainName = splitArr[0];
       const tld = "." + splitArr[1];
@@ -100,6 +98,7 @@ const StandardDomains = () => {
       );
       const domainImage = window.atob(domainUri.substring(29));
       const result = JSON.parse(domainImage);
+      // console.log(result);
 
       newDomainDetails.domainName = domainDetail.domainName;
       newDomainDetails.tld = domainDetail.tld;
@@ -117,12 +116,10 @@ const StandardDomains = () => {
 
   const res = isEmptyArray(response);
 
-  console.log(response);
-
   return (
     <div className="">
       <div className="ml-[300px] gap-4 columns-2 md:gap-2 sm:columns-2 ">
-        {loading && <DomainSkeleton cards={1} />}
+        {loading && <DomainSkeleton cards={2} />}
         {!loading &&
           response?.map((data, index) => (
             <DomainCard

@@ -8,6 +8,8 @@ import { useAccount } from "wagmi";
 import { config } from "@/abi";
 import SearchSkeleton from "./skeleton/SearchSkeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // const domain = "tiki";
 // const tld = ".kraken";
@@ -19,37 +21,47 @@ const Lookup = () => {
   const [tokenId, setTokenId] = useState("");
   const [holderAddress, setHolderAddress] = useState("");
   const [tldAddress, setTldAddress] = useState("");
+  const [searchStarted, setSearchStarted] = useState(false);
 
   const getData = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    try {
+      e.preventDefault();
+      setLoading(true);
 
-    const formattedName = userInput.replace(/\s+/g, "").toLowerCase().trim();
-    const splitName = formattedName.split(".");
+      const formattedName = userInput.replace(/\s+/g, "").toLowerCase().trim();
+      const splitName = formattedName.split(".");
 
-    console.log(splitName);
-    const domain = splitName[0];
-    const tld = "." + splitName[1];
-    console.log(domain, tld);
+      console.log(splitName);
+      const domain = splitName[0];
+      const tld = "." + splitName[1];
+      console.log(domain, tld);
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
 
-    const domainResolver = new ethers.Contract(
-      config.domainResolverAddress,
-      domainResolverAbi,
-      signer
-    );
+      const domainResolver = new ethers.Contract(
+        config.domainResolverAddress,
+        domainResolverAbi,
+        signer
+      );
 
-    const domainHolder = await domainResolver.getDomainHolder(domain, tld);
-    setHolderAddress(domainHolder);
+      const domainHolder = await domainResolver.getDomainHolder(domain, tld);
+      setHolderAddress(domainHolder);
 
-    const tldAddress = await domainResolver.getTldAddress(tld);
-    setTldAddress(tldAddress);
+      const tldAddress = await domainResolver.getTldAddress(tld);
+      setTldAddress(tldAddress);
 
-    const address = await getFactory(tldAddress, domain);
+      const address = await getFactory(tldAddress, domain);
 
-    setLoading(false);
+      setLoading(false);
+      setSearchStarted(true);
+    } catch (error) {
+      toast.error("Sorry! Domain Does not exist!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setLoading(false);
+      setSearchStarted(false);
+    }
   };
 
   const getFactory = async (tld, domain) => {
@@ -128,14 +140,17 @@ const Lookup = () => {
       <div className="ml-[50px]">
         <div className="ml-[250px] mt-2">{loading && <SearchSkeleton />}</div>
 
-        {!loading && (
-          <LookupCard
-            ownerAddress={holderAddress}
-            contractAddress={tldAddress}
-            tokenId={tokenId}
-          />
-        )}
+        <div className={searchStarted ? "block" : "hidden"}>
+          {!loading && (
+            <LookupCard
+              ownerAddress={holderAddress}
+              contractAddress={tldAddress}
+              tokenId={tokenId}
+            />
+          )}
+        </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

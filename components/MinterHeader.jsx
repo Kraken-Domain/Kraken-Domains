@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAccount } from "wagmi";
+import { useAccount, useBalance } from "wagmi";
 import krakenDomainFactoryAbi from "../abi/krakenDomainFactory.json";
 import krakenDomainAbi from "../abi/krakenDomainABI.json";
 import { ethers } from "ethers";
@@ -17,6 +17,15 @@ const MinterHeader = () => {
   const [tlds, setTlds] = useState();
   const [domainHash, setDomainHash] = useState("");
   const [openMintModal, setOpenMintModal] = useState(false);
+
+  const defaultGas = 0.05;
+
+  const { data } = useBalance({
+    address: address,
+  });
+
+  let walletBalance = data?.formatted;
+  console.log(walletBalance);
 
   const notify = (e) => {
     e.preventDefault();
@@ -82,6 +91,20 @@ const MinterHeader = () => {
   const mintDomain = async (e) => {
     e.preventDefault();
 
+    if (userDomain.trim().length === 0) {
+      toast.error("Input cannot be empty", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
+
+    if (defaultGas > walletBalance) {
+      toast.error("Insufficient Funds to Mint", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
@@ -118,7 +141,6 @@ const MinterHeader = () => {
     setDomainHash(txHash);
     setOpenMintModal(true);
   };
-  // console.log(isConnected);
 
   return (
     <section>
@@ -149,7 +171,11 @@ const MinterHeader = () => {
             >
               {tlds
                 ? tlds.map((option, index) => (
-                    <option key={index} value={option} className="p-2">
+                    <option
+                      key={index}
+                      value={option}
+                      className="p-2 bg-gray-800"
+                    >
                       {option}
                     </option>
                   ))

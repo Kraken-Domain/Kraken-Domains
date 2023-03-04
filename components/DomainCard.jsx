@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { useAccount } from "wagmi";
+import { config } from "@/abi";
+import { ethers } from "ethers";
+import domainResolverAbi from "../abi/krakenDomainResolver.json";
 import "react-toastify/dist/ReactToastify.css";
 import UpdateMetadata from "./modals/UpdateMetadata";
 import TransferDomain from "./modals/TransferDomain";
+import { formatCard } from "@/utils/formatCard";
 
 // const image =
 //   "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3R8ZW58MHx8MHx8&w=1000&q=80";
@@ -14,12 +19,31 @@ import TransferDomain from "./modals/TransferDomain";
 const DomainCard = ({ domainName, tld, image }) => {
   const [openMintModal, setOpenMintModal] = useState(false);
   const [openTransferModal, setOpenTransferModal] = useState(false);
+  const [tldAddress, setTldAddress] = useState("");
 
   const handleMintOnClose = () => setOpenMintModal(false);
   const handleTransferOnClose = () => setOpenTransferModal(false);
 
   const openUpdate = () => setOpenMintModal(true);
   const openTransfer = () => setOpenTransferModal(true);
+
+  const getAddress = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const domainResolver = new ethers.Contract(
+      config.domainResolverAddress,
+      domainResolverAbi,
+      signer
+    );
+
+    const tldAddress = await domainResolver.getTldAddress(tld);
+    setTldAddress(tldAddress);
+  };
+
+  useEffect(() => {
+    getAddress();
+  }, []);
 
   return (
     <div
@@ -45,19 +69,19 @@ const DomainCard = ({ domainName, tld, image }) => {
               <button className="bg-gray-400 text-sm p-1 rounded-md font-bold mt-1">
                 <a
                   target="_blank"
-                  href="https://explorer.testnet.mantle.xyz/address/0xda6b395dcfe768362e9c15a99d44ac75a9e3c6bf"
+                  href={"https://testnet.ftmscan.com/address/" + tldAddress}
                 >
-                  Contract Address: 0xda6b3...
+                  Contract Address: {formatCard(tldAddress)}...
                 </a>
               </button>
               <button
-                className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-gray-500 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-sm ml-2  py-2 "
+                className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-xl text-sm ml-2  py-2 "
                 onClick={openTransfer}
               >
                 Transfer Domain
               </button>
               <button
-                className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-slate-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-xl text-sm ml-2  py-2 "
+                className=" transition-all duration-500 hover:opacity-80  right-0 mt-2 text-white bg-slate-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-xl text-sm ml-2  py-2 "
                 onClick={openUpdate}
               >
                 Update Metadata

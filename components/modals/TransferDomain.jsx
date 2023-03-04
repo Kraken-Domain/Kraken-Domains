@@ -1,7 +1,26 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { ethers } from "ethers";
+import { useAccount } from "wagmi";
+import { config } from "../../abi";
+import krakenDomainAbi from "../../abi/krakenDomainABI.json";
 
 const TransferDomain = ({ openMintModal, handleOnClose, domainName, tld }) => {
+  const getTokenId = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const domainContract = new ethers.Contract(tld, krakenDomainAbi, signer);
+
+    const domainTokenId = await domainContract.getDomainTokenId(domainName);
+
+    console.log(domainTokenId);
+  };
+
+  useEffect(() => {
+    // getTokenId();
+  }, []);
+
   return (
     <>
       <Transition appear show={openMintModal} as={Fragment}>
