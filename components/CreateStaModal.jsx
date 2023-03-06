@@ -138,7 +138,7 @@ const CreateStaModal = ({ visible, onClose }) => {
                     <input
                       type="text"
                       className="border  text-sm border-secondary-white p-2 rounded mb-5 bg-secondary-white text-gray-600 placeholder-gray-500 font-bold"
-                      placeholder="Please input a name"
+                      placeholder="Add domain name (i.e '.fantom')"
                       required
                       onChange={(e) => setDomainName(e.target.value)}
                     />
@@ -192,6 +192,9 @@ const CreateStaModal = ({ visible, onClose }) => {
                       Create Domain
                     </button>
                   </div>
+                  <span className="text-white font-semibold mt-7">
+                    except .eth, .ens, .com, .org, .net, .smol, .dao, .xyz{" "}
+                  </span>
                 </div>
               </div>
             </>
