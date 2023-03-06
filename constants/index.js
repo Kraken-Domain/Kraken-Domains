@@ -34,7 +34,7 @@ export const exploreWorlds = [
 
 export const startingFeatures = [
   "Choose the kind of domain you want to create (Non Transferable Domains (SBTs) or Transferable)",
-  'Add the custom domain name of your choice ( example ".tld", ".devpost")',
+  'Add the custom domain name of your choice ( example ".tld", ".fantom")',
   "Create your domain name that can be minted by community members",
 ];
 
