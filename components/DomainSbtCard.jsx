@@ -8,6 +8,8 @@ import UpdateMetadata from "./modals/UpdateMetadata";
 
 // const title = "Yellow";
 
+const tldAddress = "08484888484848484";
+
 const DomainSbtCard = ({ domainName, tld, image }) => {
   const [openMintModal, setOpenMintModal] = useState(false);
 
@@ -39,7 +41,7 @@ const DomainSbtCard = ({ domainName, tld, image }) => {
               <button className="bg-gray-400 text-sm p-1 rounded-md font-bold mt-1">
                 <a
                   target="_blank"
-                  href="https://explorer.testnet.mantle.xyz/address/0xda6b395dcfe768362e9c15a99d44ac75a9e3c6bf"
+                  href={"https://ftmscan.com/address/" + tldAddress}
                 >
                   Contract Address: 0xda6b3...
                 </a>

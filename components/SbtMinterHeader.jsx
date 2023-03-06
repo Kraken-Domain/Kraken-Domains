@@ -12,7 +12,7 @@ const SbtMinter = () => {
   const { address, isConnected } = useAccount();
   const [userDomain, setUserDomain] = useState("");
   const [selectTld, setSelectTld] = useState(".sbt");
-  const [selectTldPrice, setSelectTldPrice] = useState("0.003");
+  const [selectTldPrice, setSelectTldPrice] = useState("0.004");
   const [domainFactory, setDomainFactory] = useState("");
   const [tlds, setTlds] = useState();
   const [openMintModal, setOpenMintModal] = useState(false);
@@ -30,7 +30,7 @@ const SbtMinter = () => {
 
   const getTldPrice = async (tld) => {
     const provider = new ethers.providers.JsonRpcProvider(
-      "https://rpc.ankr.com/fantom_testnet"
+      "https://rpc.ankr.com/fantom"
     );
 
     const tldAddress = await domainFactory.tldNamesAddresses(tld);
@@ -49,7 +49,7 @@ const SbtMinter = () => {
 
   const getTldDomains = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      "https://rpc.ankr.com/fantom_testnet"
+      "https://rpc.ankr.com/fantom"
     );
     // const signer = provider.getSigner();
 

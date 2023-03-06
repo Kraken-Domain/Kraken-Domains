@@ -16,7 +16,7 @@ const LookupCard = ({ ownerAddress, contractAddress, tokenId }) => {
           <button className="text-sm bg-purple-600 font-bold rounded-lg p-2">
             <a
               target="_blank"
-              href={"https://testnet.ftmscan.com/address/" + ownerAddress}
+              href={"https://ftmscan.com/address/" + ownerAddress}
             >
               View on Fantom
             </a>
@@ -31,7 +31,7 @@ const LookupCard = ({ ownerAddress, contractAddress, tokenId }) => {
           <button className="text-sm bg-purple-600 font-bold rounded-lg p-2 mt-4">
             <a
               target="_blank"
-              href={"https://testnet.ftmscan.com/address/" + contractAddress}
+              href={"https://ftmscan.com/address/" + contractAddress}
             >
               View on Fantom
             </a>
@@ -50,7 +50,7 @@ const LookupCard = ({ ownerAddress, contractAddress, tokenId }) => {
           <button className="text-sm bg-purple-600 font-bold rounded-lg p-2 ">
             <a
               target="_blank"
-              href={"https://testnet.ftmscan.com/address/" + factoryAddress}
+              href={"https://ftmscan.com/address/" + factoryAddress}
             >
               View on Fantom
             </a>

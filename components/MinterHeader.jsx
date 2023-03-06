@@ -12,7 +12,7 @@ const MinterHeader = () => {
   const { address, isConnected } = useAccount();
   const [userDomain, setUserDomain] = useState("");
   const [selectTld, setSelectTld] = useState(".kraken");
-  const [selectTldPrice, setSelectTldPrice] = useState("0.01");
+  const [selectTldPrice, setSelectTldPrice] = useState("0.002");
   const [domainFactory, setDomainFactory] = useState("");
   const [tlds, setTlds] = useState();
   const [domainHash, setDomainHash] = useState("");
@@ -39,7 +39,7 @@ const MinterHeader = () => {
 
   const getTldPrice = async (tld) => {
     const provider = new ethers.providers.JsonRpcProvider(
-      "https://rpc.ankr.com/fantom_testnet"
+      "https://rpc.ankr.com/fantom"
     );
 
     const tldAddress = await domainFactory.tldNamesAddresses(tld);
@@ -58,7 +58,7 @@ const MinterHeader = () => {
 
   const getTldDomains = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      "https://rpc.ankr.com/fantom_testnet"
+      "https://rpc.ankr.com/fantom"
     );
     // const signer = provider.getSigner();
 

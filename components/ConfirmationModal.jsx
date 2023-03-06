@@ -58,7 +58,7 @@ const MintedModal = ({ txHash, openMintModal, handleOnClose }) => {
                     >
                       <a
                         target="_blank"
-                        href={"https://testnet.ftmscan.com/tx/" + txHash}
+                        href={"https://ftmscan.com/tx/" + txHash}
                       >
                         Confirm on Fantom
                       </a>

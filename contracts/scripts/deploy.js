@@ -30,9 +30,10 @@ async function main() {
 
   const ForbiddenTlds = await hre.ethers.getContractFactory("ForbiddenTldsV2");
 
-  const metadataAddress = "0x13e218E581908C232270F88312f263f2B93594B7";
+  // const metadataAddress = "0x13e218E581908C232270F88312f263f2B93594B7";
+  const metadataAddress = "0xa338D6CD0850b4283Caf3E6aE4904a32A378c4f9";
 
-  const royaltyAddress = "0xC944686f882A24D1B1716718A37A6FebF7fA8C3b";
+  const royaltyAddress = "0xc0C962DEC521883ca85F2e5F963954C3bc9b0359";
 
   const krakenHub = await KrakenDomainHub.deploy(metadataAddress);
   await krakenHub.deployed();

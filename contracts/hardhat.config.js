@@ -6,8 +6,6 @@ require("@openzeppelin/hardhat-upgrades");
 
 const dotenv = require("dotenv").config();
 const privateKey = process.env.PRIVATE_KEY;
-const urlEndpoint = "https://fantom-testnet.public.blastapi.io";
-const apiKey = process.env.POLYGONSCAN_API_KEY;
 
 task("accounts", "Prints The List Of Accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
@@ -26,10 +24,10 @@ module.exports = {
     hardhat: {
       // See its defaults
     },
-    fantomTestnet: {
-      url: "https://fantom-testnet.public.blastapi.io",
+    opera: {
+      url: "https://fantom-mainnet.public.blastapi.io",
       accounts: [privateKey],
-      chainId: 0xfa2,
+      chainId: 250,
     },
   },
   solidity: {
@@ -39,6 +37,11 @@ module.exports = {
         enabled: true,
         runs: 200,
       },
+    },
+  },
+  etherscan: {
+    apiKey: {
+      opera: process.env.FANTOM_KEY,
     },
   },
 };

@@ -206,10 +206,7 @@ const CreateStaModal = ({ visible, onClose }) => {
               <IoMdCheckmarkCircle />
             </div>
             <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-2 text-white mt-4 font-bold rounded-xl">
-              <a
-                target="_blank"
-                href={"https://testnet.ftmscan.com/tx/" + hash}
-              >
+              <a target="_blank" href={"https://ftmscan.com/tx/" + hash}>
                 Verify Transaction
               </a>
             </div>

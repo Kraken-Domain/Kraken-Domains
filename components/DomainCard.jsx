@@ -69,7 +69,7 @@ const DomainCard = ({ domainName, tld, image }) => {
               <button className="bg-gray-400 text-sm p-1 rounded-md font-bold mt-1">
                 <a
                   target="_blank"
-                  href={"https://testnet.ftmscan.com/address/" + tldAddress}
+                  href={"https://ftmscan.com/address/" + tldAddress}
                 >
                   Contract Address: {formatCard(tldAddress)}...
                 </a>

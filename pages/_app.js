@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import { darkTheme } from "@rainbow-me/rainbowkit";
 import { getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { fantomTestnet } from "@wagmi/core/chains";
+import { fantomTestnet, fantom } from "@wagmi/core/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
@@ -11,11 +11,11 @@ import merge from "lodash.merge";
 // import { DomainContextProvider } from "@/context/context";
 
 const { provider, chains } = configureChains(
-  [fantomTestnet],
+  [fantom],
   [
     jsonRpcProvider({
       rpc: (chain) => ({
-        http: `https://rpc.ankr.com/fantom_testnet`,
+        http: `https://fantom-mainnet.public.blastapi.io`,
       }),
     }),
   ]
