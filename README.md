@@ -1,6 +1,6 @@
 ## Kraken Protocol
 
-This is the repo for the Kraken Domain Project, a permissionless Web3 domain service, that enables individuals, communities and organizations (DAOs) to create a personalized top level domain and built on the Fantom Opera Mainnet
+This is the monorepo for the Kraken Domain Project, a permissionless Web3 domain service, that enables individuals, communities and organizations (DAOs) to create a personalized top level domain and built on the Fantom Opera Mainnet
 
 ## Smart Contract Links
 - Metadata Address: https://ftmscan.com/address/0xa338D6CD0850b4283Caf3E6aE4904a32A378c4f9
