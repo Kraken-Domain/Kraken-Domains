@@ -9,7 +9,31 @@ Kraken protocol enables users to register custom top level domains and access a 
 
 - An SBT Domain. - The SBT Domain leverages the concept of a Soul Bound Token, is bound to the wallet and cannot be transfered. The metadata can only be updated. They can be used to create decentralized identities for schools, IDs and even proof of humanity (PoH) in DAOs
 
-## Usecases
+## Workflow - Create Custom Domain (i.e .fantom, .code)
+1. Launch app to Connect Wallet and redirect to Dashboard.
+
+![read1](https://user-images.githubusercontent.com/124390899/223584576-bb9b57d3-ee48-45a7-92d1-49dc91268a10.PNG)
+
+2. CREATE DOMAIN PAGE - User can select what kind of domain they choose to create (A Standard Transferable domain or an SBT domain).
+
+![createDomain](https://user-images.githubusercontent.com/124390899/223584797-b94ea401-5e30-490d-99ae-46c05cbb21e2.PNG)
+
+3. User inputs the desired parameters for their domain choice
+
+![modal](https://user-images.githubusercontent.com/124390899/223584957-ba1d92e9-cb50-473e-93b9-3d23fea1c6d0.PNG)
+
+4. After Domain is created and transaction verified, the newly created TLD (top level domain) is populated from the smart contract to the domain Minting page as a TLD option, using the Fantom Mainnet Rpc.
+5. User can proceed to the MINTER page to choose what the minting page they'd like to go to.
+
+![minter](https://user-images.githubusercontent.com/124390899/223585105-35ea7b5b-44fe-4b3c-aedc-717118accf96.PNG)
+
+## Workflow - Mint a Domain
+
+### You can visit either of the link depending on the kind of domain you want to mint
+- Standard (Transferable) Domain Link - https://kraken-protocol.vercel.app/mint-domain
+
+- Sbt Domain Link - https://kraken-protocol.vercel.app/mint-sbt   
+
 
 
 ## Smart Contract Links
