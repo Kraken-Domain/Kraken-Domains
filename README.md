@@ -9,6 +9,15 @@ Kraken protocol enables users to register custom top level domains and access a 
 
 - An SBT Domain. - The SBT Domain leverages the concept of a Soul Bound Token, is bound to the wallet and cannot be transfered. The metadata can only be updated. They can be used to create decentralized identities for schools, IDs and even proof of humanity (PoH) in DAOs
 
+## Smart Contract Links
+- Metadata Address: https://ftmscan.com/address/0xa338D6CD0850b4283Caf3E6aE4904a32A378c4f9
+- Forbidden TLDS: https://ftmscan.com/address/0xa798783029A0102E6cb637A35fe54EdccA7dD21E
+- Domain Hub: https://ftmscan.com/address/0x188caa1a841d23c273736796e2B86cc7E5E09021
+- Domain Factory: https://ftmscan.com/address/0x3E4EF3754F3325Ae05d1CC77BBdC4f0dA2738506
+- SBT Domain Factory: https://ftmscan.com/address/0xc386D98c66069a14a493eb59406AB7D2BF9cA0bd
+- Domain Resolver: https://ftmscan.com/address/0x1a4daf67f9681d6649cde442c0dc48bde7eba6f3
+- Sbt Resolver: https://ftmscan.com/address/0x86f91c0e6c144c4ac3c3aeab3d6dc1d53c6144a1
+
 ## Workflow - Create Custom Domain (i.e .fantom, .code)
 1. Launch app to Connect Wallet and redirect to Dashboard.
 
@@ -32,18 +41,12 @@ Kraken protocol enables users to register custom top level domains and access a 
 ### You can visit either of the link depending on the kind of domain you want to mint
 - Standard (Transferable) Domain Link - https://kraken-protocol.vercel.app/mint-domain
 
-- Sbt Domain Link - https://kraken-protocol.vercel.app/mint-sbt   
+- Sbt Domain Link - https://kraken-protocol.vercel.app/mint-sbt
+
+![mintdomain](https://user-images.githubusercontent.com/124390899/223585972-da5fcfb0-7347-4001-8807-aa89cb0c0539.PNG)
 
 
 
-## Smart Contract Links
-- Metadata Address: https://ftmscan.com/address/0xa338D6CD0850b4283Caf3E6aE4904a32A378c4f9
-- Forbidden TLDS: https://ftmscan.com/address/0xa798783029A0102E6cb637A35fe54EdccA7dD21E
-- Domain Hub: https://ftmscan.com/address/0x188caa1a841d23c273736796e2B86cc7E5E09021
-- Domain Factory: https://ftmscan.com/address/0x3E4EF3754F3325Ae05d1CC77BBdC4f0dA2738506
-- SBT Domain Factory: https://ftmscan.com/address/0xc386D98c66069a14a493eb59406AB7D2BF9cA0bd
-- Domain Resolver: https://ftmscan.com/address/0x1a4daf67f9681d6649cde442c0dc48bde7eba6f3
-- Sbt Resolver: https://ftmscan.com/address/0x86f91c0e6c144c4ac3c3aeab3d6dc1d53c6144a1
 
 ## Tech Stack Overview
 - Frontend: Next.js, Tailwindcss, Wagmi, Rainbowkit, ethers.js
